@@ -2,7 +2,7 @@
 
 Knotra gives users the ability to manage their hair health through log tracking and  hair care routines catered to their specific needs, including product recommendations.
 
-[View App]((https://knotra.netlify.app/))
+[View App](https://knotra.netlify.app/)
   
 ## App Feautures
 -Each new log requires users to select hair condition(s) & hair type. The notes field is for the user to describe hair concerns/updates.
@@ -19,3 +19,8 @@ Knotra gives users the ability to manage their hair health through log tracking 
 (https://www.loom.com/share/2dc6ddaea2b04c96848b6a2faab9fc43?sid=e7023d7d-513b-44a8-868b-21f67da6ca1d)https://www.loom.com/share/11af9a81ae8a4b84bc4f0c963a16884e?sid=b8005b2c-76db-4b8e-aace-f7794a3d3f84
 
 ## Relevant Links
+[Wireframe](https://www.figma.com/design/pzl7YNjymFT1Hp57WjrE49/Knotra---FE-Capstone?node-id=1-3&t=aPyn5RtPEw2UoTew-0)
+[ERD](https://dbdiagram.io/d/Knotra-FE-Capstone-672c170ae9daa85aca961786)
+
+### Contributors
+- Jaylen Webb
