@@ -5,7 +5,7 @@ Knotra gives users the ability to manage their hair health through log tracking 
 [View App](https://knotra.netlify.app/)
   
 ## App Feautures
--Each new log requires users to select hair condition(s) & hair type. The notes field is for the user to describe hair concerns/updates.
+- Each new log requires users to select hair condition(s) & hair type. The notes field is for the user to describe hair concerns/updates.
 - Users can manipulate, view, and delete logs they’ve created
 - Users can choose keep logs private or make them public.
 - Public logs can only be viewed by other users.
