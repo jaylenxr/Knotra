@@ -16,10 +16,10 @@ Knotra is for users who may have hair concerns and want to learn more about what
 - User have access to links to recommended products.
 
 ## App Preview
- <img [Screenshot 2025-03-11 at 7 11 10 PM](https://github.com/user-attachments/assets/5343c466-3290-479b-bbe8-1cdb0216c50b) />
- <img width="1294" alt="image" src="https://github.com/user-attachments/assets/a5256138-c907-4464-b539-f5a83c0c9b67" />
- <img width="1417" alt="Screenshot 2025-03-11 at 8 42 27 PM" src="https://github.com/user-attachments/assets/8e6a0c49-6e53-425f-9f1f-c5c71300e4aa" />
- <img ![image](https://github.com/user-attachments/assets/bac019eb-ba69-4fa6-a478-a1d3c7edbb0c) />
+  [Screenshot 2025-03-11 at 7 11 10 PM](https://github.com/user-attachments/assets/5343c466-3290-479b-bbe8-1cdb0216c50b) 
+  width="1294" alt="image" src="https://github.com/user-attachments/assets/a5256138-c907-4464-b539-f5a83c0c9b67" 
+  width="1417" alt="Screenshot 2025-03-11 at 8 42 27 PM" src="https://github.com/user-attachments/assets/8e6a0c49-6e53-425f-9f1f-c5c71300e4aa" 
+  ![image](https://github.com/user-attachments/assets/bac019eb-ba69-4fa6-a478-a1d3c7edbb0c) 
 
 
 
