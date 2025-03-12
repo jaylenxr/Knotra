@@ -26,7 +26,7 @@ Knotra is for users who may have hair concerns and want to learn more about what
 
 [ERD](https://dbdiagram.io/d/Knotra-FE-Capstone-672c170ae9daa85aca961786)
 
-[Project Board] (https://github.com/users/jaylenxr/projects/4)
+[Project Board](https://github.com/users/jaylenxr/projects/4)
 
 ### Contributors
 - Jaylen Webb
