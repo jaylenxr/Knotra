@@ -4,7 +4,7 @@ Knotra gives users the ability to manage their hair health through log tracking 
 
 [View App](https://knotra.netlify.app/)
 
-##About The User
+## About The User
 
 Knotra is for users who may have hair concerns and want to learn more about what products and routines would be most helpful in building and maintaining their hair's health. Users can create logs to keep track of any reoccuring issues and reference products and routines that assist in alleviating their problem.
   
