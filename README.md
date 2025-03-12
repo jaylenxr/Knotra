@@ -10,7 +10,7 @@ Knotra gives users the ability to manage their hair health through log tracking 
 - User have access to links to recommended products.
 
 ## App Preview
-<img ![Screenshot 2025-03-11 at 7 11 10 PM](https://github.com/user-attachments/assets/5343c466-3290-479b-bbe8-1cdb0216c50b)/>
+ ![Screenshot 2025-03-11 at 7 11 10 PM](https://github.com/user-attachments/assets/5343c466-3290-479b-bbe8-1cdb0216c50b)
 
 
 ## App Walkthrough
