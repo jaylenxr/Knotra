@@ -20,6 +20,7 @@ Knotra gives users the ability to manage their hair health through log tracking 
 
 ## Relevant Links
 [Wireframe](https://www.figma.com/design/pzl7YNjymFT1Hp57WjrE49/Knotra---FE-Capstone?node-id=1-3&t=aPyn5RtPEw2UoTew-0)
+
 [ERD](https://dbdiagram.io/d/Knotra-FE-Capstone-672c170ae9daa85aca961786)
 
 ### Contributors
