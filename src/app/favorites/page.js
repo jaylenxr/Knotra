@@ -3,16 +3,17 @@
 import React, { useEffect, useState } from 'react';
 import { favoriteLogs } from '../../api/logData';
 import LogCard from '../../components/LogCard';
+import { useAuth } from '../../utils/context/authContext';
 
-export default function ShowFavoriteLogs() {
+function ShowFavoriteLogs() {
   const [favoritedLogs, setFavoritedLogs] = useState([]);
+  const { user } = useAuth([]);
+
+  const getAllFavoriteLogs = () => {
+    favoriteLogs(user.uid).then(setFavoritedLogs);
+  };
 
   useEffect(() => {
-    const getAllFavoriteLogs = async () => {
-      const getTheFavoriteLogs = await favoriteLogs();
-      setFavoritedLogs(getTheFavoriteLogs);
-    };
-
     getAllFavoriteLogs();
   }, []);
 
@@ -23,3 +24,4 @@ export default function ShowFavoriteLogs() {
     </div>
   );
 }
+export default ShowFavoriteLogs;

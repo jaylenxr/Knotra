@@ -142,9 +142,9 @@ const getUserPublicLogs = (uid) =>
   });
 
 // FILTER FAVORITE LOGS
-const favoriteLogs = () =>
+const favoriteLogs = (uid) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/logs.json?orderBy="favorite"&equalTo=true`, {
+    fetch(`${endpoint}/logs.json?orderBy="uid"&equalTo="${uid}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -153,7 +153,8 @@ const favoriteLogs = () =>
       .then((response) => response.json())
       .then((data) => {
         if (data) {
-          resolve(Object.values(data));
+          const favLogs = Object.values(data).filter((obj) => obj.favorite);
+          resolve(favLogs);
         } else {
           resolve([]);
         }
