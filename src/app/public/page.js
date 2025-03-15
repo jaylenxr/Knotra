@@ -7,19 +7,19 @@ import LogCard from '../../components/LogCard';
 export default function ShowPublicLogs() {
   const [publicLogs, setPublicLogs] = useState([]);
 
-  const getAllPublicLogs = async () => {
-    const getThePublicLogs = await getPublicLogs();
-    setPublicLogs(getThePublicLogs);
-  };
-
   useEffect(() => {
+    const getAllPublicLogs = async () => {
+      const getThePublicLogs = await getPublicLogs();
+      setPublicLogs(getThePublicLogs);
+    };
+
     getAllPublicLogs();
   }, []);
 
   return (
-    <div className="logs-page">
-      <h3>Public Logs</h3>
-      <div className="logs-list">{publicLogs.length === 0 ? <h1 style={{ color: 'white', textAlign: 'center', width: '100%' }}>No Public Logs</h1> : publicLogs.map((log) => <LogCard key={log.firebaseKey} logObj={log} />)}</div>
+    <div className="public-container">
+      <h3 className="public-title">Public Logs</h3>
+      <div className="public-grid">{publicLogs.length === 0 ? <h1 className="no-logs">No Public Logs</h1> : publicLogs.map((log) => <LogCard key={log.firebaseKey} logObj={log} />)}</div>
     </div>
   );
 }
