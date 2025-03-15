@@ -20,7 +20,7 @@ export default function LogCard({ logObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={logObj.image} alt={logObj.name} style={{ height: '300px' }} />
+      {logObj.image && <Card.Img variant="top" src={logObj.image} alt={logObj.name} style={{ height: '300px' }} />}
       <Card.Body className="card-content">
         <Card.Title className="card-title">{logObj.name}</Card.Title>
         <Card.Subtitle className="card-subtitle">{logObj.notes}</Card.Subtitle>

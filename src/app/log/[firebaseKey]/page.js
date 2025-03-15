@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { getSingleLog } from '../../../api/logData';
 import { getAllRoutines } from '../../../api/routineData';
 import { getAllProducts } from '../../../api/productData';
+import { getAllHairtypes } from '../../../api/hairtypeData'; // Import the function to get all hairtypes
 
 const initialState = {
   name: '',
@@ -20,9 +21,13 @@ export default function ViewLog({ params }) {
   const [logDetails, setLogDetails] = useState(initialState);
   const [routines, setRoutines] = useState([]);
   const [products, setProducts] = useState([]);
+  const [hairtypes, setHairtypes] = useState([]);
+  const [hairtypeName, setHairtypeName] = useState('');
 
   useEffect(() => {
     getSingleLog(firebaseKey).then(setLogDetails);
+
+    getAllHairtypes().then(setHairtypes);
   }, [firebaseKey]);
 
   useEffect(() => {
@@ -35,12 +40,19 @@ export default function ViewLog({ params }) {
     });
   }, [logDetails.condition_id]);
 
+  useEffect(() => {
+    if (logDetails.hairtype_id && hairtypes.length) {
+      const hairtype = hairtypes.find((ht) => ht.firebaseKey === logDetails.hairtype_id);
+      setHairtypeName(hairtype ? hairtype.hairtype : '');
+    }
+  }, [logDetails.hairtype_id, hairtypes]);
+
   return (
     <div className="view-log-container">
       <div className="view-log-card">
         <h2 className="log-title">{logDetails.name}</h2>
-        <p className="log-notes">{logDetails.notes || 'No additional notes provided.'}</p>
-
+        <p className="log-notes">Notes: {logDetails.notes}</p>
+        <p className="log-hairtype">Hairtype: {hairtypeName}</p>
         <h3 className="routine-recs">Recommended Routines</h3>
         <ul className="routine-list">
           {routines.length ? (
