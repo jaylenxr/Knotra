@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { getSingleLog } from '../../../api/logData';
 import { getAllRoutines } from '../../../api/routineData';
 import { getAllProducts } from '../../../api/productData';
-import { getAllHairtypes } from '../../../api/hairtypeData'; // Import the function to get all hairtypes
+import { getAllHairtypes } from '../../../api/hairtypeData';
 
 const initialState = {
   name: '',
