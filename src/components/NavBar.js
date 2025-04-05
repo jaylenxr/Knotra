@@ -9,10 +9,19 @@ function NavBar() {
   const { user } = useAuth();
 
   return (
-    <Navbar expand="lg" bg="light" variant="light" className="sidebar" style={{ paddingLeft: '15px' }}>
+    <Navbar expand="lg" className="sidebar" style={{ paddingLeft: '15px' }}>
       <Container>
-        <Link href="/" className="navbar-brand" style={{ fontWeight: 'bold', color: '#00BF67' }}>
-          Knotra
+        <Link href="/" className="navbar-brand d-flex align-items-center gap-2" style={{ textDecoration: 'none' }}>
+          <img
+            src="/knotrabackground.png"
+            alt="Knotra logo"
+            style={{
+              height: '40px', // adjust as needed
+              width: 'auto',
+              borderRadius: '8px',
+              objectFit: 'contain',
+            }}
+          />
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -20,13 +29,11 @@ function NavBar() {
             <Link href={`/profile/${user.uid}`} className="nav-link" style={{ color: '#3E5D43' }}>
               My Profile
             </Link>
-            <Link href="/log/new" className="nav-link" style={{ color: '#3E5D43' }}>
-              New Log
-            </Link>
+
             <Link href="/favorites" className="nav-link" style={{ color: '#3E5D43' }}>
               Favorites
             </Link>
-            <Link href="/public" className="nav-link" style={{ color: '#3E5D43' }}>
+            <Link href="/publiclogs" className="nav-link" style={{ color: '#3E5D43' }}>
               Public Logs
             </Link>
           </Nav>
