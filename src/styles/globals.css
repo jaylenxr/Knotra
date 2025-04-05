@@ -1,6 +1,62 @@
 body {
   background: #f1f0e6;
   color: #6a7f49;
+  font-family: 'Cabinet Grotesk', sans-serif;
+}
+
+
+/* SIGN IN PAGE */
+
+.signin-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.signin-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.signin-content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.signin-button {
+  background-color: transparent;
+  border: 2px solid #86947A;
+  padding: 14px 40px;
+  border-radius: 10px;
+  color: #86947A;
+  font-weight: bold;
+  font-size: 18px;
+  min-width: 200px;
+  margin-top: 300px;
+  transition: all 0.3s ease-in-out;
+}
+
+.signin-button:hover {
+  background-color: #86947A;
+  color: #F9F5ED;
+}
+
+.signin-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(134, 148, 122, 0.4);
 }
 
 /* FORM FEATURES */
@@ -33,17 +89,33 @@ body {
   outline: none;
 }
 
+/* PROFILE  */
+.log-button {
+  margin-top: 70px;
 
-/* CARD FEATURES */
-.card-content {
-  text-align: center;
-  padding: 10px;
 }
 
+/* CARD FEATURES */
+/* CARD FEATURES */
 .card {
   width: 12rem;
   height: auto;
   margin: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(120, 136, 72, 0.1); /* subtle olive shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f5ed;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(120, 136, 72, 0.2); /* deeper on hover */
+}
+
+.card-content {
+  text-align: center;
+  padding: 10px;
 }
 
 .card-title {
@@ -72,11 +144,12 @@ body {
   color: #788848;
   font-size: 1rem;
   padding: 4px;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .icon-btn:hover {
   color: #a96a3a;
+  transform: scale(1.1);
 }
 
   /* FAVORITES  */
@@ -273,4 +346,44 @@ text-align: center;
 
   .purchase-link:hover {
     text-decoration: underline;
+  }
+
+  /* NAV BAR */
+  .custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f1f0e6;
+  }
+
+  /* .navbar-brand {
+    font-weight: bold;
+    font-size: 22px;
+    color: #86947A;
+    text-decoration: none;
+  } */
+
+  .nav-link {
+    color: #3E5D43 !important;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+
+  .nav-link:hover {
+    color: #86947A !important;
+    transform: translateY(-3px); /* Slight upward movement for a subtle effect */
+  }
+  .signout-button {
+    border-color: #86947A;
+    color: #86947A;
+    background-color: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .signout-button:hover {
+    background-color: #86947A;
+    color: #F9F5ED;
   }
