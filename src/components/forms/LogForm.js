@@ -14,6 +14,7 @@ import { getAllHairtypes } from '../../api/hairtypeData';
 import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { getAllConditions } from '../../api/conditionsData';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { storage } from '../../utils/client';
 
 const initialState = {
   name: '',
@@ -32,6 +33,7 @@ function LogForm({ obj = initialState }) {
   const [formInput, setFormInput] = useState(initialState);
   const [hairtypes, setHairtype] = useState([]);
   const [conditions, setConditions] = useState([]);
+  const [logImage, setLogimage] = useState('');
   const { user } = useAuth();
   const router = useRouter();
 
@@ -51,12 +53,21 @@ function LogForm({ obj = initialState }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    let imageUrl = formInput.image; // default to current image
+
+    if (logImage) {
+      const imageRef = storage.ref(`/images/${logImage.name}`);
+      await imageRef.put(logImage);
+      imageUrl = await imageRef.getDownloadURL();
+    }
+
     if (obj.firebaseKey) {
-      updateLog(formInput).then(() => router.push(`/profile/${user.uid}`));
+      const payload = { ...formInput, image: imageUrl };
+      updateLog(payload).then(() => router.push(`/profile/${user.uid}`));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, uid: user.uid, image: imageUrl };
       createLog(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateLog(patchPayload).then(() => {
@@ -65,7 +76,10 @@ function LogForm({ obj = initialState }) {
       });
     }
   };
-
+  const handleImage = (e) => {
+    const image = e.target.files[0];
+    setLogimage(image);
+  };
   const handleToggleChange = () => {
     setFormInput((prevState) => ({
       ...prevState,
@@ -114,9 +128,18 @@ function LogForm({ obj = initialState }) {
       </FloatingLabel>
 
       {/* IMAGE INPUT  */}
-      <Form.Group controlId="floatingInput7" label="Log Image" className="mb-3">
-        <Form.Control type="url" placeholder="Enter an image" name="image" value={formInput.image} onChange={handleChange} />
+      <Form.Group controlId="floatingInput1" className="align">
+        <Form.Label>Log Image</Form.Label>
       </Form.Group>
+
+      {obj.firebaseKey && obj.image && (
+        <>
+          <p style={{ marginBottom: '0px' }}>Log Image</p>
+          <img src={obj.image} alt="Log Image" className="log-image" />
+        </>
+      )}
+
+      <input type="file" className="form-image" onChange={handleImage} required />
 
       {/* NOTES INPUT */}
       <FloatingLabel controlId="floatingTextarea" label="Notes" className="mb-3">
@@ -126,7 +149,7 @@ function LogForm({ obj = initialState }) {
       {/* DATE */}
       <Form.Group className="mb-3 align">
         <Form.Label>Date of Log</Form.Label>
-        <Form.Control type="date" id="created_at" name="created_at" value={formInput.created_at} min="1920-1-01" max="2080-1-01" onChange={handleChange} />
+        <Form.Control type="date" id="created_at" name="created_at" value={formInput.created_at} min="1920-1-01" max="2080-1-01" onChange={handleChange} required />
       </Form.Group>
 
       {/* PRODUCT REC SWITCH
