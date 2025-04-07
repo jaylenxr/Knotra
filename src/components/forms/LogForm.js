@@ -137,8 +137,7 @@ function LogForm({ obj = initialState }) {
           <img src={obj.image} alt="Log Image" className="log-image" />
         </>
       )}
-
-      <input type="file" className="form-image" onChange={handleImage} required />
+      <input type="file" className="form-image" onChange={handleImage} />
 
       {/* NOTES INPUT */}
       <FloatingLabel controlId="floatingTextarea" label="Notes" className="mb-3">
