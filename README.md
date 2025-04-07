@@ -20,9 +20,11 @@ Knotra is for users who may have hair concerns and want to learn more about what
 
   <img width="1439" alt="image" src="https://github.com/user-attachments/assets/c8f9b38a-695e-42d7-81dc-1ff4d6bd4a4c" />
   
+  <img width="1437" alt="image" src="https://github.com/user-attachments/assets/17184ea9-3e20-419f-a2c3-58f4c2461f6d" />
+  
   <img width="881" alt="image" src="https://github.com/user-attachments/assets/03a2a057-e301-4df4-9fdd-a15bb4e40164" />
 
-  <img width="1417" alt="Screenshot 2025-03-11 at 8 42 27 PM" src="https://github.com/user-attachments/assets/8e6a0c49-6e53-425f-9f1f-c5c71300e4aa" />
+
   
 
 
