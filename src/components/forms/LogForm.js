@@ -55,15 +55,19 @@ function LogForm({ obj = initialState }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!logImage) await storage.ref(`/images/${logImage.name}`).put(logImage);
-    const url = await storage.ref(`images/${logImage.name}`).getDownloadURL();
+    let imageUrl = formInput.image;
+
+    if (logImage) {
+      const imageRef = storage.ref(`/images/${logImage.name}`);
+      await imageRef.put(logImage);
+      imageUrl = await imageRef.getDownloadURL();
+    }
 
     if (obj.firebaseKey) {
-      const payload2 = { ...formInput, image: url };
-      const payload3 = { ...formInput };
-      updateLog(logImage ? payload2 : payload3).then(() => router.push(`/profile/${user.uid}`));
+      const payload = { ...formInput, image: imageUrl };
+      updateLog(payload).then(() => router.push(`/profile/${user.uid}`));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, uid: user.uid, image: imageUrl };
       createLog(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateLog(patchPayload).then(() => {
@@ -72,7 +76,6 @@ function LogForm({ obj = initialState }) {
       });
     }
   };
-
   const handleImage = (e) => {
     const image = e.target.files[0];
     setLogimage(image);
@@ -135,7 +138,7 @@ function LogForm({ obj = initialState }) {
         </>
       )}
 
-      <input type="file" className="form-image" onChange={handleImage} />
+      <input type="file" className="form-image" onChange={handleImage} required />
 
       {/* NOTES INPUT */}
       <FloatingLabel controlId="floatingTextarea" label="Notes" className="mb-3">
