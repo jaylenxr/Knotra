@@ -55,19 +55,15 @@ function LogForm({ obj = initialState }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let imageUrl = formInput.image; // default to current image
-
-    if (logImage) {
-      const imageRef = storage.ref(`/images/${logImage.name}`);
-      await imageRef.put(logImage);
-      imageUrl = await imageRef.getDownloadURL();
-    }
+    if (!logImage) await storage.ref(`/images/${logImage.name}`).put(logImage);
+    const url = await storage.ref(`images/${logImage.name}`).getDownloadURL();
 
     if (obj.firebaseKey) {
-      const payload = { ...formInput, image: imageUrl };
-      updateLog(payload).then(() => router.push(`/profile/${user.uid}`));
+      const payload2 = { ...formInput, image: url };
+      const payload3 = { ...formInput };
+      updateLog(logImage ? payload2 : payload3).then(() => router.push(`/profile/${user.uid}`));
     } else {
-      const payload = { ...formInput, uid: user.uid, image: imageUrl };
+      const payload = { ...formInput, uid: user.uid };
       createLog(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateLog(patchPayload).then(() => {
@@ -76,6 +72,7 @@ function LogForm({ obj = initialState }) {
       });
     }
   };
+
   const handleImage = (e) => {
     const image = e.target.files[0];
     setLogimage(image);
@@ -134,12 +131,11 @@ function LogForm({ obj = initialState }) {
 
       {obj.firebaseKey && obj.image && (
         <>
-          <p style={{ marginBottom: '0px' }}>Log Image</p>
           <img src={obj.image} alt="Log Image" className="log-image" />
         </>
       )}
 
-      <input type="file" className="form-image" onChange={handleImage} required />
+      <input type="file" className="form-image" onChange={handleImage} />
 
       {/* NOTES INPUT */}
       <FloatingLabel controlId="floatingTextarea" label="Notes" className="mb-3">
